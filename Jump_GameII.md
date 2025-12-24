@@ -1,4 +1,4 @@
-# 🟢 Jump Game II (LeetCode – Medium)
+# 🟢 Jump GameII(LeetCode – Medium)
 
 ## 📌 Problem Statement
 You are given a 0-indexed array of integers `nums` of length `n`. You are initially positioned at index 0.
@@ -89,3 +89,4 @@ class Solution {
 ✔️ Solved  
 ✔️ Accepted on LeetCode  
 ✔️ Optimal Solution
+
