@@ -1,0 +1,122 @@
+# 🔁 Recursion Practice Repository
+
+![Language](https://img.shields.io/badge/Language-Java-orange)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Practice](https://img.shields.io/badge/Focus-DSA-blue)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-yellow)
+
+This repository contains a collection of **recursion-based problems**
+that I solve and update regularly. The aim is to **master recursion
+concepts** and improve logical thinking for coding interviews and
+competitive programming.
+
+------------------------------------------------------------------------
+
+## 📌 About
+
+This repository covers:
+
+-   Basic recursion
+-   Tail recursion
+-   Head recursion
+-   Backtracking
+-   Divide & Conquer
+-   Recursion with arrays
+-   Recursion with strings
+-   Tree recursion
+-   Mathematical recursion
+
+Each solution focuses on: - Clear base cases - Optimal recursive
+relations - Clean and readable code - Interview-friendly approach
+
+------------------------------------------------------------------------
+
+## 📂 Folder Structure
+
+    recursion/
+    │
+    ├── basic/
+    ├── arrays/
+    ├── strings/
+    ├── backtracking/
+    ├── mathematics/
+    ├── trees/
+    └── advanced/
+
+
+## 🚀 Purpose
+
+-   Strengthen recursion fundamentals
+-   Prepare for product-based company interviews
+-   Improve problem-solving skills
+-   Maintain daily coding consistency
+
+------------------------------------------------------------------------
+
+## 🛠 Technologies
+
+-   Java
+-   Practice platforms:
+    -   LeetCode
+    -   GeeksforGeeks
+    -   HackerRank
+    -   CodeStudio
+
+------------------------------------------------------------------------
+
+## 🧑‍💻 How to Run
+
+1.  Clone the repository
+
+2.  Open any recursion file
+
+3.  Run using:
+
+    ``` bash
+    javac FileName.java
+    java FileName
+    ```
+
+4.  Modify and test your own cases
+
+------------------------------------------------------------------------
+
+## 📅 Daily Progress Tracker
+
+  Date    Problems Solved
+  ------- ----------------------
+  Day 1   Factorial, Fibonacci
+  Day 2   Reverse String
+  Day 3   Power of Number
+  Day 4   Subsets
+  Day 5   Permutations
+
+------------------------------------------------------------------------
+
+## 🤝 Contributions
+
+Contributions are welcome!
+
+Steps: 1. Fork repository 2. Create new branch 3. Commit changes 4.
+Create pull request
+
+------------------------------------------------------------------------
+
+## 🌟 Future Goals
+
+-   Add recursion on graphs
+-   Add DP + recursion problems
+-   Add visualization examples
+-   Add time complexity analysis
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+**Anugu Samhith Reddy**\
+DSA Enthusiast \| Java Developer\
+🚀 Consistent daily learner
+
+------------------------------------------------------------------------
+
+⭐ If you like this repository, give it a **star!**
