@@ -1,16 +1,26 @@
-import java.util.Arrays;
-
 class Solution {
     public boolean isGood(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        int largest = nums[n - 1];
-        if (largest != n - 1) return false;
-        for (int i = 0; i < n - 1; i++) {
-            if (nums[i] != i + 1) {
-                return false;
-            }
+
+        int n = 0;
+
+        // find max element
+        for (int num : nums) {
+            n = Math.max(n, num);
         }
-        return nums[n - 1] == nums[n - 2];
+
+        // size check
+        if (nums.length != n + 1) return false;
+
+        int[] freq = new int[201];
+
+        for (int num : nums) {
+            freq[num]++;
+        }
+
+        for (int i = 1; i < n; i++) {
+            if (freq[i] != 1) return false;
+        }
+
+        return freq[n] == 2;
     }
 }
