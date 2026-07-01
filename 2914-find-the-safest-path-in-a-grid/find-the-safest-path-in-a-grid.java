@@ -1,8 +1,9 @@
 class Solution {
-    int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
-
-    public int maximumSafenessFactor(List<List<Integer>> grid) {
+     static int[][] dir = { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };
+    public static int maximumSafenessFactor(List<List<Integer>> grid) {
         int n = grid.size();
+        if (grid.get(0).get(0) == 1 || grid.get(n - 1).get(n - 1) == 1)
+            return 0;
         int[][] dist = new int[n][n];
         Queue<int[]> q = new LinkedList<>();
         for (int i = 0; i < n; i++) {
@@ -11,54 +12,46 @@ class Solution {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid.get(i).get(j) == 1) {
+                    q.add(new int[] { i, j });
                     dist[i][j] = 0;
-                    q.offer(new int[]{i, j});
                 }
             }
         }
+        // boolean[][] vis =
         while (!q.isEmpty()) {
-            int[] cur = q.poll();
-            for (int[] d : dir) {
-                int nr = cur[0] + d[0];
-                int nc = cur[1] + d[1];
+            int[] pop = q.poll();
+            int r = pop[0], c = pop[1];
+            for (int d[] : dir) {
+                int nr = d[0] + r;
+                int nc = d[1] + c;
                 if (nr >= 0 && nr < n && nc >= 0 && nc < n && dist[nr][nc] == -1) {
-                    dist[nr][nc] = dist[cur[0]][cur[1]] + 1;
-                    q.offer(new int[]{nr, nc});
+                    dist[nr][nc] = dist[r][c] + 1;
+                    q.add(new int[]{nr,nc});
                 }
             }
+
         }
-        int low = 0, high = 2 * n;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (canReach(dist, mid)) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return high;
-    }
-    private boolean canReach(int[][] dist, int safe) {
-        int n = dist.length;
-        if (dist[0][0] < safe) return false;
-        Queue<int[]> q = new LinkedList<>();
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
+        pq.add(new int[] { dist[0][0], 0, 0 });
         boolean[][] vis = new boolean[n][n];
-        q.offer(new int[]{0, 0});
         vis[0][0] = true;
-        while (!q.isEmpty()) {
-            int[] cur = q.poll();
-            if (cur[0] == n - 1 && cur[1] == n - 1)
-                return true;
-            for (int[] d : dir) {
-                int nr = cur[0] + d[0];
-                int nc = cur[1] + d[1];
-                if (nr >= 0 && nr < n && nc >= 0 && nc < n &&
-                    !vis[nr][nc] && dist[nr][nc] >= safe) {
+        while (!pq.isEmpty()) {
+            int[] pop = pq.poll();
+            int safeness_factor = pop[0];
+            int r = pop[1], c = pop[2];
+            if (r == n - 1 && c == n - 1)
+                return safeness_factor;
+            for (int d[] : dir) {
+                int nr = r + d[0];
+                int nc = c + d[1];
+                if (nr >= 0 && nr < n && nc >= 0 && nc < n && !vis[nr][nc]) {
+                    int new_safeness = Math.min(safeness_factor, dist[nr][nc]);
+                    pq.add(new int[] { new_safeness, nr, nc });
                     vis[nr][nc] = true;
-                    q.offer(new int[]{nr, nc});
                 }
             }
         }
-        return false;
+        return 0;
+
     }
 }
