@@ -1,17 +1,27 @@
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
-        int n = nums.length ;
-        int sorted[] = nums.clone() ;
-        Arrays.sort(nums);
-        int left = 0 ;
-        while(left<n && nums[left]==sorted[left]) {
-            left++;
+        int n = nums.length;
+
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+
+        int left = -1;
+        int right = -1;
+
+        for (int i = 0; i < n; i++) {
+            max = Math.max(max, nums[i]);
+            if (nums[i] < max) {
+                right = i;
+            }
         }
-        if(left == n) return 0 ;
-        int right = n-1 ;
-        while(right>=0 && nums[right]==sorted[right]) {
-            right--;
+
+        for (int i = n - 1; i >= 0; i--) {
+            min = Math.min(min, nums[i]);
+            if (nums[i] > min) {
+                left = i;
+            }
         }
-        return right-left+1;
+
+        return right == -1 ? 0 : right - left + 1;
     }
 }
