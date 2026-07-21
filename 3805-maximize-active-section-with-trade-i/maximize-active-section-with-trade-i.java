@@ -1,0 +1,30 @@
+class Solution {
+    public int maxActiveSectionsAfterTrade(String s) {
+        int ones = 0;
+        List<Integer> zeroGroups = new ArrayList<>();
+
+        for (int i = 0; i < s.length(); ) {
+            int j = i;
+            while (j < s.length() && s.charAt(j) == s.charAt(i)) {
+                j++;
+            }
+
+            int len = j - i;
+
+            if (s.charAt(i) == '1') {
+                ones += len;
+            } else {
+                zeroGroups.add(len);
+            }
+
+            i = j;
+        }
+
+        int best = 0;
+        for (int i = 0; i + 1 < zeroGroups.size(); i++) {
+            best = Math.max(best, zeroGroups.get(i) + zeroGroups.get(i + 1));
+        }
+
+        return ones + best;
+    }
+}
