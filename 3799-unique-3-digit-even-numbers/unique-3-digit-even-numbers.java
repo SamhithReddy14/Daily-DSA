@@ -15,12 +15,9 @@ class Solution {
             count[d2]--;
             count[d3]--;
 
-            // If all counts remain non-negative, this number can be formed
             if (count[d1] >= 0 && count[d2] >= 0 && count[d3] >= 0) {
                 result++;
             }
-
-            // Backtrack/restore frequencies for the next iteration
             count[d1]++;
             count[d2]++;
             count[d3]++;
